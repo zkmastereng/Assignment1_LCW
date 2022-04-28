@@ -27,11 +27,11 @@ public class SmokeTest extends BaseTest{
 
         WebElement login = new WebDriverWait(driver, Duration.ofSeconds(5)).until(driver -> driver.findElement(By.cssSelector(".header-dropdown-toggle")));
         login.click();
-        WebElement phone = driver.findElement(By.cssSelector(".login-form__radio-buttons--second-label"));
-        phone.click();
-        WebElement email = new WebDriverWait(driver, Duration.ofSeconds(5)).until(driver-> driver.findElement(By.cssSelector(".text-input[name='phone']")));
+        /*WebElement phone = driver.findElement(By.cssSelector(".login-form__radio-buttons--second-label"));
+        phone.click(); */
+        WebElement email = new WebDriverWait(driver, Duration.ofSeconds(5)).until(driver-> driver.findElement(By.cssSelector(".text-input[name='email']")));
 
-        email.sendKeys("222222222");
+        email.sendKeys("email@email.com");
 
 
         WebElement password = new WebDriverWait(driver, Duration.ofSeconds(5)).until(driver-> driver.findElement(By.cssSelector(".text-input[name='password']")));
@@ -41,7 +41,7 @@ public class SmokeTest extends BaseTest{
         submitButton.click();
 
 
-        WebElement errorMessage = new WebDriverWait(driver,Duration.ofSeconds(5)).until(driver -> driver.findElement(By.cssSelector(".login-form__header-errors--p")));
+        WebElement errorMessage = new WebDriverWait(driver,Duration.ofSeconds(10)).until(driver -> driver.findElement(By.cssSelector(".login-form__header-errors--p")));
         String message = errorMessage.getText();
         System.out.println(message);
 

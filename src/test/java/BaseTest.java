@@ -12,14 +12,14 @@ public class BaseTest {
 
     @BeforeMethod
     public void startUp() {
-        FirefoxOptions options = new FirefoxOptions();
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
 
 
         String path = System.getProperties().get("user.dir").toString();
-        System.setProperty("webdriver.gecko.driver", path + "/src/main/resources/geckodriver.exe");
+        System.setProperty("webdriver.chrome.driver", path + "/src/main/resources/chromedriver.exe");
 
-        driver = new FirefoxDriver(options);
+        driver = new ChromeDriver(options);
 
         driver.get("https://www.lcwaikiki.com/");
 
