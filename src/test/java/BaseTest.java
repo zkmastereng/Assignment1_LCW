@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -13,13 +14,13 @@ public class BaseTest {
     @BeforeMethod
     public void startUp() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-notifications");
+        options.addArguments("--disable-notifications","--disable-blink-features=AutomationControlled");
 
 
-        String path = System.getProperties().get("user.dir").toString();
-        System.setProperty("webdriver.chrome.driver", path + "/src/main/resources/chromedriver.exe");
+       WebDriverManager.chromedriver().setup();
+       driver = new ChromeDriver(options);
 
-        driver = new ChromeDriver(options);
+
 
         driver.get("https://www.lcwaikiki.com/");
 
