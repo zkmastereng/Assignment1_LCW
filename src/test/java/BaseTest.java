@@ -16,21 +16,13 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications","--disable-blink-features=AutomationControlled");
 
-
        WebDriverManager.chromedriver().setup();
        driver = new ChromeDriver(options);
-
-
-
-        driver.get("https://www.lcwaikiki.com/");
+       driver.get("https://www.lcwaikiki.com/");
 
     }
-
-
     @AfterMethod
     public void tearDown() {
         driver.quit();
     }
-
-
 }
